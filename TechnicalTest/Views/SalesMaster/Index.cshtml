@@ -1,0 +1,61 @@
+﻿@model IEnumerable<TechnicalTest.Models.SalesMaster>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="card">
+    <div class="card-header text-center">
+        <h2>Sales Master Information</h2>
+    </div>
+    <div class="card-body">
+
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Add New</a>
+        </p>
+        <table class="table  table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalQuantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalPrice)
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalQuantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalPrice)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.SalesMasterId" class="btn btn-info">Edit</a>
+
+                            <a asp-action="Delete" asp-route-id="@item.SalesMasterId" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>
